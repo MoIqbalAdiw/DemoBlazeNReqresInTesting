@@ -15,7 +15,7 @@ import static helper.Utility.driver;
 public class WebPage {
     public void openBrowser() {
         driver.get("https://www.demoblaze.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public boolean cekLogo() {
@@ -82,14 +82,14 @@ public class WebPage {
 
     public void clickVideo() {
         By byLocator = By.className("vjs-poster");
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.presenceOfElementLocated(byLocator));
         driver.findElement(byLocator).click();
     }
 
     public void popUpVideo() {
         By byLocator = By.tagName("video");
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.presenceOfElementLocated(byLocator));
         WebElement getElement = driver.findElement(byLocator);
         Assertions.assertThat(getElement.getAttribute("src").contains("blob"));
@@ -98,13 +98,13 @@ public class WebPage {
     public void closeVideo() {
         By byLocator = By.xpath
                 ("//div[@id='videoModal']//button[@type='button'][normalize-space()='Close']");
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
     }
     public void clickCart() {
         By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
     }
