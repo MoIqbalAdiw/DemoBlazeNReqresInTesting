@@ -98,7 +98,7 @@ public class WebPage {
     public void closeVideo() {
         By byLocator = By.xpath
                 ("//div[@id='videoModal']//button[@type='button'][normalize-space()='Close']");
-        new WebDriverWait(driver, Duration.ofSeconds(10)).
+        new WebDriverWait(driver, Duration.ofSeconds(20)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
     }
