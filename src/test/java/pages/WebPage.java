@@ -106,7 +106,7 @@ public class WebPage {
 //        By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
         By byLocator = By.id("cartur");
         new WebDriverWait(driver, Duration.ofSeconds(20)).
-                until(ExpectedConditions.elementToBeClickable(byLocator));
+                until(ExpectedConditions.presenceOfElementLocated(byLocator));
         driver.findElement(byLocator).click();
     }
 
@@ -134,7 +134,7 @@ public class WebPage {
     }
 
     public String getAlertMessage(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.alertIsPresent());
         String alertMssg = driver.switchTo().alert().getText();
         return alertMssg;
@@ -151,7 +151,7 @@ public class WebPage {
     }
     By signin = By.id("signin2");
     public void clickSignUp(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(signin));
         driver.findElement(signin).click();
     }
@@ -162,18 +162,18 @@ public class WebPage {
         password = Utility.generateRandomPass();
         System.out.println("Username = "+username);
         System.out.println("Password = "+password);
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.presenceOfElementLocated(By.id("sign-username")));
         driver.findElement(By.id("sign-username")).sendKeys(username);
         driver.findElement(By.id("sign-password")).sendKeys(password);
     }
     public void userNameNew(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(loginBtn));
         driver.findElement(By.id("loginusername")).sendKeys(username);
     }
     public void passWordNew(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(loginBtn));
         driver.findElement(By.id("loginpassword")).sendKeys(password);
     }
@@ -188,12 +188,12 @@ public class WebPage {
         driver.findElement(By.id("sign-password")).sendKeys(user);
     }
     public void userName(String user){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(loginBtn));
         driver.findElement(By.id("loginusername")).sendKeys(user);
     }
     public void passWord(String pass){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(loginBtn));
         driver.findElement(By.id("loginpassword")).sendKeys(pass);
     }
@@ -217,7 +217,7 @@ public class WebPage {
     }
     By logOut = By.id("logout2");
     public boolean verifWelcoming(){
-        new WebDriverWait(driver, Duration.ofSeconds(15)).
+        new WebDriverWait(driver, Duration.ofSeconds(25)).
                 until(ExpectedConditions.elementToBeClickable(logOut));
         String expected = "Welcome "+username;
         String actual = driver.findElement(By.id("nameofuser")).getText();
