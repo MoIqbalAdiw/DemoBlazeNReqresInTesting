@@ -103,7 +103,8 @@ public class WebPage {
         driver.findElement(byLocator).click();
     }
     public void clickCart() {
-        By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
+//        By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
+        By byLocator = By.id("cartur");
         new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
