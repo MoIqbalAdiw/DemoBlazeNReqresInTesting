@@ -97,12 +97,11 @@ public class WebPage {
 
     public void closeVideo() {
         By byLocator = By.xpath
-            ("//div[@id='videoModal']//span[@aria-hidden='true'][normalize-space()='×']");
-                // ("//div[@id='videoModal']//button[@type='button'][normalize-space()='Close']");
+            // ("//div[@id='videoModal']//span[@aria-hidden='true'][normalize-space()='×']");
+                ("//div[@id='videoModal']//button[@type='button'][normalize-space()='Close']");
         new WebDriverWait(driver, Duration.ofSeconds(20)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
-        driver.findElement(By.xpath("//div[@id='videoModal']").click();
     }
     public void clickCart() {
 //        By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
