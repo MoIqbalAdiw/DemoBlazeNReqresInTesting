@@ -102,6 +102,7 @@ public class WebPage {
         new WebDriverWait(driver, Duration.ofSeconds(20)).
                 until(ExpectedConditions.elementToBeClickable(byLocator));
         driver.findElement(byLocator).click();
+        driver.findElement(By.xpath("//div[@id='videoModal']").click();
     }
     public void clickCart() {
 //        By byLocator = By.xpath("//a[@class='nav-link'][contains(.,'Cart')]");
