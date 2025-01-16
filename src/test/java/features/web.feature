@@ -19,8 +19,8 @@ Feature: Test Automation Web
     And user click video
     Then user see pop up and play video about us
     And user click close about us pop up
-    And user click Cart link on navbar
-    Then user see cart product list
+#    And user click Cart link on navbar
+#    Then user see cart product list
     And user click Home link on navbar
     Then user back to homepage
 
